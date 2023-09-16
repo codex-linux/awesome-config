@@ -587,6 +587,11 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell("compton")
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("arandr")
+awful.spawn.with_shell("~/./startup.sh")
+
+
+
+
 
 
 -- beautiful.init(gears.filesystem.get_configuration_dir() .. "/themes/default/theme.lua")
