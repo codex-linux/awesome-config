@@ -475,7 +475,12 @@ awful.rules.rules = {
                      placement = awful.placement.no_overlap+awful.placement.no_offscreen
      }
     },
-
+{
+	rule_any = {
+	class = {"obs"},
+	name = {"obs"}	
+	 }, properties = {screen = 2, tag = "9"}
+	},
     -- Floating clients.
     { rule_any = {
         instance = {
