@@ -329,7 +329,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.util.spawn("dmenu_run") end,
+    awful.key({ modkey, "Shift" },            "Return",        function () awful.util.spawn("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
 
  -- browser
@@ -496,8 +496,8 @@ awful.rules.rules = {
 
 {
         rule_any = {
-        class = {"discord"},
-        name = {"discord"}
+        class = {"Discord"},
+        name = {"Discord"}
          }, properties = {screen = 2, tag = "1"}
         },
 
@@ -614,9 +614,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart Applications
 awful.spawn.with_shell("compton")
 awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("arandr")
 awful.spawn.with_shell("~/./startup.sh")
-awful.spawn.with_shell("qutebrowser")
 
 
 
