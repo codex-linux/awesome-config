@@ -332,6 +332,11 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" },            "Return",        function () awful.util.spawn("rofi -show run") end,
               {description = "run prompt", group = "launcher"}),
 
+ -- Sound
+ awful.key({ modkey, "Shift" },            "s",        function () awful.util.spawn("pavucontrol") end,
+ {description = "sound", group = "launcher"}),
+
+
  -- browser
     awful.key({ modkey },           "b",     function () awful.util.spawn("brave-browser") end,
               {description = "web browser", group = "launcher"}),
@@ -489,16 +494,30 @@ awful.rules.rules = {
 
 {
         rule_any = {
-        class = {"qutebrowser"},
-        name = {"qutebrowser"}
-         }, properties = {screen = 1, tag = "1"}
+        class = {"virt-manager"},
+        name = {"Virtual Machine Manager"}
+         }, properties = {screen = 1, tag = "3"}
         },
 
 {
         rule_any = {
-        class = {"Discord"},
-        name = {"Discord"}
+        class = {"discord"},
+        name = {"discord"}
          }, properties = {screen = 2, tag = "1"}
+        },
+
+{
+        rule_any = {
+        class = {"shotcut"},
+        name = {"Shotcut"}
+         }, properties = {screen = 1, tag = "9"}
+        },
+    
+{
+        rule_any = {
+        class = {"brave-browser"},
+        name = {"Brave-browser"}
+         }, properties = {screen = 1, tag = "1"}
         },
 
 
@@ -613,8 +632,10 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart Applications
 awful.spawn.with_shell("compton")
-awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("~/./startup.sh")
+awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("conky -d")
+
 
 
 
